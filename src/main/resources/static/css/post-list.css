@@ -1,0 +1,312 @@
+
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style:none;
+            font-family:"맑은 고딕";
+            color:#C7D7F9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #161838;
+            height: 2000px;
+        }
+
+        .navbar {
+            color: #C7D7F9;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .navbar-menu a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+
+
+.community-header {
+    position: relative;
+    width: 1500px;
+    height: 300px;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+.community-header>img {
+    filter: sepia(100%) hue-rotate(190deg) saturate(200%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+.titlebox {
+    padding-top: 70px;
+    padding-left:50px;
+}
+.titlebox>h1 { font-weight: 300; }
+.titlebox>span {
+    font-weight: 100;
+    font-size: 16px;
+    color:#FAE8D3 ;
+}
+.search-box{
+    width:490px;
+    height:36px;
+    background:#C7D7F9;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    margin-top:12px;
+}
+.search-box input{
+    flex:1;
+    height:100%;
+    border:none;
+    background:transparent;
+    padding:0 12px;
+    color:#161838;
+    font-size:14px;
+    outline: none;
+}
+.search-box input::placeholder{ color:#9DB2F5; }
+.search-box button{
+    width:36px;
+    height:36px;
+    background:#9DB2F5;
+    border:none;
+    cursor:pointer;
+}
+.search-box button:hover{ background:#8aa3f0; }
+
+
+
+        .container {
+            width: 1500px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            color: #333;
+        }
+
+        .btn {
+            width: 100%;
+            display: inline-block;
+            padding: 12px 24px;
+            background:  #5C68B2;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .post-table {
+            width: 1000px;
+            height: 1300px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        table {
+            width: 1000px;
+            height: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #555;
+        }
+
+        th.col-id {}
+        th.col-title {}
+        th.col-author {}
+        th.col-date {}
+        th.col-views {}
+
+
+        td {
+            padding: 15px;
+            color: #333;
+        }
+
+        td.col-id { text-align: center; color: #999; }
+        td.col-views { text-align: center; color: #666; }
+
+        tbody{
+            width: 1000px;
+            height: 100%;
+            display: block;
+        }
+
+        tr{
+            width: 1000px;
+            display: block;
+            height: 100px;
+            background: #9DB2F5;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        tr:last-child{
+            margin-bottom: 0;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        .post-title {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            
+        }
+
+        .post-main{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .post-title:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+            font-size: 18px;
+        }
+
+        .post-count {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .bastpost{
+    background:#9DB2F5;
+    height:300px;
+    width:100%;
+    border-radius:16px;
+    padding:16px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    margin-bottom: 20px;
+}
+.best-title {
+    font-weight: normal;
+    color: #FAE8D3;
+    margin-bottom: 30px;
+}
+.best-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+.best-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.best-item img{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+}
+.best-text{
+    overflow:hidden;
+}
+.best-nickname{
+    color: #FAE8D3;
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.2; 
+    margin-bottom: 2px; 
+}
+.best-content{
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+    color: #5C68B2;
+    width: 200px;
+}
+.best-link {
+   display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+.page-btn {
+    background: #5C68B2;
+    color: #C7D7F9;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.page-btn:hover { opacity:0.8; }

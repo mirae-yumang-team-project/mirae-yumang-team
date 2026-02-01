@@ -16,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -173,5 +174,25 @@ public class PostService {
                 .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
 
         return postRepository.countByUser(user);
-    }}
+    }
+    public Post createPost(String title, String content, String username, String fileName, String filePath) {
+        // findByUsername이 Optional을 반환하는 경우
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다.")); // 또는 유저 찾는 로직
+        
+        Post post = new Post();
+        post.setTitle(title);
+        post.setContent(content);
+        post.setUser(user);
+        post.setFileName(fileName);
+        post.setFilePath(filePath);
+        post.setCreatedAt(LocalDateTime.now());
+        
+        return postRepository.save(post);
+    }
+}
+
+    
+
+
     

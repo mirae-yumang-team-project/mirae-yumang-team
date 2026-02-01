@@ -6,6 +6,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "posts")
@@ -47,7 +48,12 @@ public class Post {
 
     @Column(columnDefinition = "integer default 0")
     private int hateCount = 0;
+    //이미지 추가
+    @Column
+    private String fileName; // 실제 저장된 파일 이름 (UUID_원본이름.jpg 형태)
 
+    @Column
+    private String filePath; // 브라우저에서 접근할 경로 (/upload/UUID_원본이름.jpg)
     // 편의 생성자
     public Post(String title, String content, User user) {
         this.title = title;
@@ -57,6 +63,8 @@ public class Post {
         this.viewCount = 0;
         this.likeCount = 0;
         this.hateCount = 0;
+        this.fileName = fileName;
+        this.filePath = filePath;
     }
 
     // ✨ 생성 시 자동으로 현재 시간 설정
@@ -157,4 +165,8 @@ public class Post {
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     // 초기화를 꼭 해주어야 NullPointerException이 발생하지 않습니다.
     private List<Lh> likesHates = new ArrayList<>();
+
+    // 2. 댓글 데이터와의 관계 (이 부분이 없거나 설정이 부족할 확률이 높습니다)
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments = new ArrayList<>();
 }

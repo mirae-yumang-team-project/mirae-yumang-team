@@ -331,6 +331,11 @@ color: #9DB2F5;
 }
 .page-btn:hover { opacity:0.8; }
 
+.pagination .page-info{
+    color: #C7D7F9;
+}
+
+
 /* 테이블 헤더 전체 스타일 */
 .post-table thead tr {
     background: transparent; /* 헤더는 배경색 없이 투명하게 */

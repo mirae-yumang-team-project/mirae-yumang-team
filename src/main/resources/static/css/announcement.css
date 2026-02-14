@@ -95,7 +95,7 @@ header a:hover {
 .announcement {
     width: 100%;
     height: 100%;
-    background: #1E2256;
+    background: #20245c;
     border-radius: 20px;
     padding: 20px;
     box-sizing: border-box;
@@ -196,33 +196,46 @@ header a:hover {
 
 
 
-
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
-    gap: 12px;
-    z-index: 22;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-bottom: 30px;
+    gap: 15px;
 }
 
-.page-btn {
-    background: #7A90E9;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 6px 12px;
+.page-number {
     cursor: pointer;
+    padding: 5px 10px;
+    color: #FAE8D3; /* 기본 숫자 색상 */
+    font-size: 18px;
     transition: 0.2s;
 }
 
-.page-btn:hover {
-    opacity: 0.8;
+.page-number:hover {
+    color: #7A90E9;
 }
 
-.pagination .page-info {
-    color: #fff;
+/* 현재 선택된 숫자 스타일 (이미지의 1번처럼) */
+.page-number.active {
+    color: #fae8d3b0;           /* 진한 숫자 */
+    font-weight: bold;
+}
+
+.page-btn {
+    background: none;      /* 배경 제거 */
+    color: #FAE8D3;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.page-btn:hover {
+    color: #7A90E9;
 }

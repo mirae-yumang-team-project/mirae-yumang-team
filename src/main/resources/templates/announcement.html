@@ -111,16 +111,19 @@
                                     <button>즉시지원하기</button>
                                 </ul>
                             </div>
-                            
+
 
                         </div>
 
                     </div>
-                    <div class="pagination">
-                        <button class="page-btn" data-page="prev">이전</button>
-                        <span class="page-info">1 / 1</span>
-                        <button class="page-btn" data-page="next">다음</button>
+                    <div class="footer">
+                        <div class="pagination">
+                            <button class="page-btn" data-page="prev">이전</button>
+                            <div id="page-numbers" style="display: flex; gap: 5px;"></div>
+                            <button class="page-btn" data-page="next">다음</button>
+                        </div>
                     </div>
+
                 </div>
                 <!-- </div> -->
             </div>
@@ -128,12 +131,28 @@
     </main>
 </body>
 <script>
-    const postsPerPage = 8; // 한 페이지 최대 8개
+    const postsPerPage = 8;
     let currentPage = 1;
 
-    const allPosts = Array.from(document.querySelectorAll('.main-announcement > div'));
+    const allPosts = Array.from(document.querySelectorAll('.main-announcement > div')); // 부모 div 선택으로 수정
     const totalPages = Math.ceil(allPosts.length / postsPerPage);
-    const pageInfo = document.querySelector('.page-info');
+    const pageNumbersContainer = document.getElementById('page-numbers');
+
+    function renderPageNumbers() {
+        pageNumbersContainer.innerHTML = ''; // 기존 버튼 초기화
+
+        for (let i = 1; i <= totalPages; i++) {
+            const span = document.createElement('span');
+            span.textContent = i;
+            span.classList.add('page-number');
+            if (i === currentPage) span.classList.add('active'); // 현재 페이지 강조
+
+            span.addEventListener('click', () => {
+                showPage(i);
+            });
+            pageNumbersContainer.appendChild(span);
+        }
+    }
 
     function showPage(page) {
         currentPage = page;
@@ -142,13 +161,14 @@
             const end = currentPage * postsPerPage;
             post.style.display = (index >= start && index < end) ? 'block' : 'none';
         });
-        pageInfo.textContent = `${currentPage} / ${totalPages}`;
+
+        renderPageNumbers(); // 페이지 번호 상태 업데이트
     }
 
-    // 초기 화면
+    // 초기 실행
     showPage(1);
 
-    // 버튼 이벤트
+    // 이전/다음 버튼 이벤트
     document.querySelectorAll('.page-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             if (btn.dataset.page === 'prev' && currentPage > 1) {
@@ -158,13 +178,6 @@
             }
         });
     });
-    function openModal() {
-        const modal = document.getElementById('postModal');
-        if (modal) {
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-    }
 </script>
 
 </html>
